@@ -1,0 +1,13 @@
+{
+  "name": "raambow-techsolutions-vanilla",
+  "version": "1.0.0",
+  "description": "Premium startup portfolio website",
+  "main": "main.js",
+  "scripts": {
+    "dev": "http-server -p 3000 -c-1",
+    "start": "http-server -p 3000"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}

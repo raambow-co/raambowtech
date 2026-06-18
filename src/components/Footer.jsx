@@ -48,7 +48,7 @@ const Footer = ({ onLinkedInClick }) => {
               <span>
                 <span style={{ color: '#113E78' }}>Raam</span>
                 <span style={{ color: '#F06222' }}>Bow</span>
-                <span style={{ fontWeight: '400', fontSize: '1rem', marginLeft: '0.4rem', color: 'var(--clr-text-muted)' }}>TechSolutions</span>
+                <span className="footer-logo-subtext" style={{ fontWeight: '400', fontSize: '1rem', marginLeft: '0.4rem', color: 'var(--clr-text-muted)' }}>TechSolutions</span>
               </span>
             </a>
             

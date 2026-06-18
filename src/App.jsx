@@ -5,6 +5,7 @@ import Hero from './components/Hero';
 import { About, Services } from './components/AboutServices';
 import Projects from './components/Projects';
 import { Workflow, TechStack } from './components/WorkflowTech';
+import Clients from './components/Clients';
 import Roadmap from './components/Roadmap';
 import Footer from './components/Footer';
 import ContactModal from './components/ContactModal';
@@ -52,6 +53,7 @@ function App() {
       />
       <main>
         <Hero onContactClick={() => setShowContactModal(true)} />
+        <Clients />
         <About />
         <Services onContactClick={() => setShowContactModal(true)} />
         <Projects />

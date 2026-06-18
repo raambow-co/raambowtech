@@ -257,6 +257,19 @@ const Services = ({ onContactClick }) => {
                 initial="enter"
                 animate="center"
                 exit="exit"
+                drag="x"
+                dragConstraints={{ left: 0, right: 0 }}
+                dragElastic={0.2}
+                onDragEnd={(e, { offset }) => {
+                  const swipe = offset.x;
+                  if (swipe < -50) {
+                    handleNext();
+                  } else if (swipe > 50) {
+                    handlePrev();
+                  }
+                }}
+                style={{ cursor: 'grab' }}
+                whileTap={{ cursor: 'grabbing' }}
                 className="services-slide-layout"
               >
                 {/* Left Side: Image */}

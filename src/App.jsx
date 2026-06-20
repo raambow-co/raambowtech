@@ -7,6 +7,7 @@ import Projects from './components/Projects';
 import { Workflow, TechStack } from './components/WorkflowTech';
 import Clients from './components/Clients';
 import Roadmap from './components/Roadmap';
+import EnquirySection from './components/EnquirySection';
 import Footer from './components/Footer';
 import ContactModal from './components/ContactModal';
 import { Home, Briefcase, Layers, Cpu, Mail, X, Linkedin, MessageCircle } from 'lucide-react';
@@ -25,9 +26,9 @@ function App() {
   ];
 
   const socialItems = [
-    { label: 'LinkedIn', link: '#' },
+    { label: 'LinkedIn', link: 'https://www.linkedin.com/in/raambow-technologies-316084418' },
     { label: 'WhatsApp', link: 'https://wa.me/919490543499' },
-    { label: 'Instagram', link: 'https://instagram.com' },
+    { label: 'Instagram', link: 'https://www.instagram.com/raambow_technologies/' },
     { label: 'Twitter', link: 'https://twitter.com' }
   ];
 
@@ -60,6 +61,7 @@ function App() {
         <Workflow />
         <TechStack />
         <Roadmap />
+        <EnquirySection />
       </main>
       <Footer onLinkedInClick={() => setShowLinkedInModal(true)} />
       <Dock items={dockItems} />

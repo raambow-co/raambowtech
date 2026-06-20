@@ -19,13 +19,12 @@ const Footer = ({ onLinkedInClick }) => {
       { name: 'Web Design', href: '#services' },
       { name: 'Web Development', href: '#services' },
       { name: 'UI/UX Design', href: '#services' },
-      { name: 'Branding', href: '#services' },
-      { name: 'Price Brochure', href: '#' },
+      { name: 'Branding', href: '#services' }
     ]
   };
 
   const socialLinks = [
-    { icon: <Linkedin size={18} />, href: '#', name: 'LinkedIn' },
+    { icon: <Linkedin size={18} />, href: 'https://www.linkedin.com/in/raambow-technologies-316084418', name: 'LinkedIn' },
     { icon: <MessageCircle size={18} />, href: 'https://wa.me/919490543499', name: 'WhatsApp' },
     { icon: <Instagram size={18} />, href: 'https://www.instagram.com/raambow_technologies/', name: 'Instagram' },
     { icon: <Mail size={18} />, href: 'mailto:raambowtech@gmail.com', name: 'Email' },
@@ -76,14 +75,8 @@ const Footer = ({ onLinkedInClick }) => {
                     href={social.href} 
                     className="footer-social-glass" 
                     aria-label={social.name} 
-                    target={social.name === 'LinkedIn' ? undefined : "_blank"} 
+                    target="_blank" 
                     rel="noopener noreferrer"
-                    onClick={(e) => {
-                      if (social.name === 'LinkedIn') {
-                        e.preventDefault();
-                        onLinkedInClick?.();
-                      }
-                    }}
                   >
                     {social.icon}
                   </a>
@@ -160,8 +153,9 @@ const Footer = ({ onLinkedInClick }) => {
                 
                 <MagneticWrapper strength={0.15}>
                   <a 
-                    href="#" 
-                    onClick={(e) => { e.preventDefault(); onLinkedInClick?.(); }}
+                    href="https://www.linkedin.com/in/raambow-technologies-316084418" 
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="footer-btn-glass btn-linkedin-grad"
                   >
                     <Linkedin size={18} />

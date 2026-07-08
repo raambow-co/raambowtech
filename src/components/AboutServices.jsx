@@ -4,6 +4,7 @@ import { CheckCircle, Laptop, Palette, Layers, Gauge, ArrowRight, ChevronLeft, C
 import MagneticWrapper from './MagneticWrapper';
 import founder1 from '../assets/founder_1.jpg';
 import founder2 from '../assets/founder_2.jpg';
+import alisha from '../assets/alisha.jpeg';
 
 const About = () => {
   const checklist = [
@@ -14,7 +15,8 @@ const About = () => {
 
   const founders = [
     { name: "Aditya Sai Nandyala", role: "CEO & Founder", img: founder2, objectPosition: "center 20%" },
-    { name: "Yuvan Datti", role: "MD & Digital Marketing Head", img: founder1, objectPosition: "center 15%" }
+    { name: "Yuvan Datti", role: "CTO & MD", img: founder1, objectPosition: "center 15%" },
+    { name: "Alisha", role: "Digital Marketing Head", img: alisha, objectPosition: "center 20%" }
   ];
 
   return (
@@ -36,15 +38,15 @@ const About = () => {
             >
               Who We Are
             </motion.span>
-            <h2>The Duo Behind the Tech</h2>
-            <p className="subtitle">Execution-driven digital partnership.</p>
+            <h2>The Team Behind the Tech</h2>
+            <p className="subtitle">Execution-driven digital solutions.</p>
             
             <p className="about-statement">
               A compact team building modern, scalable web products with speed, precision, and purpose.
             </p>
             
             <p className="about-description">
-              We are a two-person tech solutions startup focused on deep-level engineering and elegant visual presence. We specialize in transforming complex problems into fluid digital experiences.
+              We are a team-driven tech solutions startup focused on deep-level engineering and elegant visual presence. We specialize in transforming complex problems into fluid digital experiences.
             </p>
 
             <ul className="about-list">
@@ -66,24 +68,46 @@ const About = () => {
 
           <div className="about-profiles">
             <div className="about-glow"></div>
-            {founders.map((founder, index) => (
-              <motion.div 
-                key={founder.name}
-                className="profile-frame-wrap"
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.3 + (index * 0.2) }}
-              >
-                <div className="profile-frame">
-                  <img src={founder.img} alt={founder.name} style={{ objectPosition: founder.objectPosition }} />
-                </div>
-                <div className="profile-info">
-                  <h4>{founder.name}</h4>
-                  <p>{founder.role}</p>
-                </div>
-              </motion.div>
-            ))}
+            <div className="profiles-top-row">
+              {founders.slice(0, 2).map((founder, index) => (
+                <motion.div 
+                  key={founder.name}
+                  className="profile-frame-wrap"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: 0.3 + (index * 0.2) }}
+                >
+                  <div className="profile-frame">
+                    <img src={founder.img} alt={founder.name} style={{ objectPosition: founder.objectPosition }} />
+                  </div>
+                  <div className="profile-info">
+                    <h4>{founder.name}</h4>
+                    <p>{founder.role}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+            {founders.length > 2 && (
+              <div className="profiles-bottom-row">
+                <motion.div 
+                  key={founders[2].name}
+                  className="profile-frame-wrap"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: 0.7 }}
+                >
+                  <div className="profile-frame">
+                    <img src={founders[2].img} alt={founders[2].name} style={{ objectPosition: founders[2].objectPosition }} />
+                  </div>
+                  <div className="profile-info">
+                    <h4>{founders[2].name}</h4>
+                    <p>{founders[2].role}</p>
+                  </div>
+                </motion.div>
+              </div>
+            )}
           </div>
         </div>
       </div>

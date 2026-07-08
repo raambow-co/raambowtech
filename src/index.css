@@ -728,12 +728,28 @@ a:hover {
 
 .about-profiles {
   display: flex;
+  flex-direction: column;
   gap: 2.5rem;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
-  flex-wrap: nowrap;
   padding-left: 0;
   position: relative;
+  width: 100%;
+}
+
+.profiles-top-row {
+  display: flex;
+  gap: 2.5rem;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.profiles-bottom-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 
 .about-glow {
@@ -827,6 +843,10 @@ a:hover {
     flex-wrap: wrap;
     padding-left: 0;
     margin-top: 3rem;
+  }
+  .profiles-top-row {
+    flex-direction: column;
+    gap: 1.5rem;
   }
 }
 

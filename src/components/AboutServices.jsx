@@ -5,6 +5,12 @@ import MagneticWrapper from './MagneticWrapper';
 import founder1 from '../assets/founder_1.jpg';
 import founder2 from '../assets/founder_2.jpg';
 import alisha from '../assets/alisha.jpeg';
+import logoImg from '../assets/logo.png';
+import kheerthanaImg from '../assets/Kheerthana Nambu.jpeg';
+import kesavanImg from '../assets/Kesavan P.jpeg';
+import manaswiniImg from '../assets/Manaswini I.jpeg';
+import charanImg from '../assets/Charan J.jpeg';
+import tejaImg from '../assets/teja.jpeg';
 
 const About = () => {
   const checklist = [
@@ -14,14 +20,15 @@ const About = () => {
   ];
 
   const founders = [
-    { name: "Aditya Sai Nandyala", role: "CEO & Founder", img: founder2, objectPosition: "center 20%" },
-    { name: "Yuvan Datti", role: "CTO & MD", img: founder1, objectPosition: "center 15%" },
-    { name: "Alisha", role: "Digital Marketing Head", img: alisha, objectPosition: "center 20%" }
+    { name: "Yuvan Datti", role: "CTO & MD", degree: "B.Tech (CSE)", img: founder1, objectPosition: "center 15%", accent: true },
+    { name: "Aditya Sai Nandyala", role: "CEO & Founder", degree: "B.Tech (CSE)", img: founder2, objectPosition: "center 20%", accent: true },
+    { name: "Alisha Ahmad", role: "Digital Marketing Head", degree: "B.Tech (CSE)", img: alisha, objectPosition: "center 20%", accent: false }
   ];
 
   return (
     <section className="about section" id="about">
       <div className="container">
+        {/* Top block: About Text and Founders Photos */}
         <div className="about-content">
           <motion.div 
             className="about-text"
@@ -66,48 +73,146 @@ const About = () => {
             </ul>
           </motion.div>
 
-          <div className="about-profiles">
-            <div className="about-glow"></div>
-            <div className="profiles-top-row">
-              {founders.slice(0, 2).map((founder, index) => (
-                <motion.div 
-                  key={founder.name}
-                  className="profile-frame-wrap"
+          {/* Founders Photos — Triangle Layout */}
+          <motion.div
+            className="about-brand-card-wrap"
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
+            <div className="profiles-triangle-wrap">
+              {/* Top row: Aditya & Yuvan */}
+              <div className="profiles-triangle-top">
+                {[founders[1], founders[0]].map((founder, i) => (
+                  <motion.div
+                    key={founder.name}
+                    className="profile-frame-wrap profile-side"
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: 0.2 + (i * 0.15) }}
+                  >
+                    <div className="profile-frame">
+                      <img src={founder.img} alt={founder.name} style={{ objectPosition: founder.objectPosition }} />
+                    </div>
+                    <div className="profile-info">
+                      <h4>{founder.name}</h4>
+                      <p className="profile-degree">{founder.degree}</p>
+                      <span className={`profile-badge-pill${founder.accent ? ' profile-badge-accent' : ''}`}>{founder.role}</span>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+              {/* Bottom center: Alisha */}
+              <div className="profiles-triangle-bottom">
+                <motion.div
+                  className="profile-frame-wrap profile-side"
                   initial={{ opacity: 0, scale: 0.8 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: 0.3 + (index * 0.2) }}
-                >
-                  <div className="profile-frame">
-                    <img src={founder.img} alt={founder.name} style={{ objectPosition: founder.objectPosition }} />
-                  </div>
-                  <div className="profile-info">
-                    <h4>{founder.name}</h4>
-                    <p>{founder.role}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-            {founders.length > 2 && (
-              <div className="profiles-bottom-row">
-                <motion.div 
-                  key={founders[2].name}
-                  className="profile-frame-wrap"
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: 0.7 }}
+                  transition={{ duration: 0.6, delay: 0.5 }}
                 >
                   <div className="profile-frame">
                     <img src={founders[2].img} alt={founders[2].name} style={{ objectPosition: founders[2].objectPosition }} />
                   </div>
                   <div className="profile-info">
                     <h4>{founders[2].name}</h4>
-                    <p>{founders[2].role}</p>
+                    <p className="profile-degree">{founders[2].degree}</p>
+                    <span className={`profile-badge-pill${founders[2].accent ? ' profile-badge-accent' : ''}`}>{founders[2].role}</span>
                   </div>
                 </motion.div>
               </div>
-            )}
+            </div>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export const TeamSection = () => {
+  const founders = [
+    { name: "Yuvan Datti", role: "CTO & MD", degree: "B.Tech (CSE)", img: founder1, objectPosition: "center 15%", accent: true },
+    { name: "Aditya Sai Nandyala", role: "CEO & Founder", degree: "B.Tech (CSE)", img: founder2, objectPosition: "center 20%", accent: true },
+    { name: "Alisha Ahmad", role: "Digital Marketing Head", degree: "B.Tech (CSE)", img: alisha, objectPosition: "center 20%", accent: true }
+  ];
+
+  const scrollMembers = [
+    { name: "Charan J.", role: "Full Stack Developer", degree: "B.Tech (CSE)", img: charanImg },
+    { name: "Manaswini I.", role: "Front End & Marketing", degree: "B.Tech (CSM)", img: manaswiniImg },
+    { name: "Kheerthana Nambu", role: "Front End & Marketing", degree: "B.Tech (AIML)", img: kheerthanaImg },
+    { name: "Madhu", role: "UI/UX Designer & Editor", degree: "B.Tech (CSE)", img: kesavanImg },
+    { name: "Teja Dumpa", role: "Photo & Videographer", degree: "B.Tech (ECE)", img: tejaImg },
+  ];
+
+  return (
+    <section className="about section" id="team">
+      <div className="container">
+        <div className="about-team-section">
+          <div className="team-glow-bg"></div>
+          
+          <motion.div 
+            className="team-header"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <span className="section-label-center">Our Team</span>
+            <h3>Meet the Experts</h3>
+            <p className="team-subtitle">
+              The brilliant minds driving the technology forward with decades of combined experience.
+            </p>
+          </motion.div>
+
+          <div className="profiles-main-row">
+            {founders.map((founder, index) => {
+              const isMiddle = index === 1;
+              return (
+                <motion.div 
+                  key={founder.name}
+                  className={`profile-frame-wrap ${isMiddle ? 'profile-middle' : 'profile-side'}`}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: 0.2 + (index * 0.15) }}
+                >
+                  <div className="profile-frame">
+                    <img src={founder.img} alt={founder.name} style={{ objectPosition: founder.objectPosition }} />
+                  </div>
+                  <div className="profile-info">
+                    <h4>{founder.name}</h4>
+                    <p className="profile-degree">{founder.degree}</p>
+                    <span className={`profile-badge-pill${founder.accent ? ' profile-badge-accent' : ''}`}>{founder.role}</span>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
+
+          <div className="marquee-section">
+            <div className="marquee-title-wrap">
+              <h4>Associate Engineers &amp; Designers</h4>
+              <div className="title-divider"></div>
+            </div>
+            
+            <div className="team-marquee-container">
+              <div className="team-marquee-track">
+                {[...scrollMembers, ...scrollMembers].map((member, index) => (
+                  <div key={index} className="marquee-profile-card">
+                    <div className="marquee-profile-frame">
+                      <img src={member.img} alt={member.name} />
+                    </div>
+                    <div className="marquee-profile-info">
+                      <h5>{member.name}</h5>
+                      <span className="marquee-profile-degree">{member.degree}</span>
+                      <span className="marquee-profile-badge">{member.role}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </div>

@@ -51,10 +51,6 @@ const About = () => {
             <p className="about-statement">
               A compact team building modern, scalable web products with speed, precision, and purpose.
             </p>
-            
-            <p className="about-description">
-              We are a team-driven tech solutions startup focused on deep-level engineering and elegant visual presence. We specialize in transforming complex problems into fluid digital experiences.
-            </p>
 
             <ul className="about-list">
               {checklist.map((item, i) => (
@@ -133,9 +129,9 @@ const About = () => {
 
 export const TeamSection = () => {
   const founders = [
-    { name: "Yuvan Datti", role: "CTO & MD", degree: "B.Tech (CSE)", img: founder1, objectPosition: "center 15%", accent: true },
-    { name: "Aditya Sai Nandyala", role: "CEO & Founder", degree: "B.Tech (CSE)", img: founder2, objectPosition: "center 20%", accent: true },
-    { name: "Alisha Ahmad", role: "Digital Marketing Head", degree: "B.Tech (CSE)", img: alisha, objectPosition: "center 20%", accent: true }
+    { id: 'yuvan', name: "Yuvan Datti", role: "CTO & MD", degree: "B.Tech (CSE)", img: founder1, objectPosition: "center 15%", accent: true },
+    { id: 'aditya', name: "Aditya Sai Nandyala", role: "CEO & Founder", degree: "B.Tech (CSE)", img: founder2, objectPosition: "center 20%", accent: true },
+    { id: 'alisha', name: "Alisha Ahmad", role: "Digital Marketing Head", degree: "B.Tech (CSE)", img: alisha, objectPosition: "center 20%", accent: true }
   ];
 
   const scrollMembers = [
@@ -172,7 +168,7 @@ export const TeamSection = () => {
               return (
                 <motion.div 
                   key={founder.name}
-                  className={`profile-frame-wrap ${isMiddle ? 'profile-middle' : 'profile-side'}`}
+                  className={`profile-frame-wrap ${isMiddle ? 'profile-middle' : 'profile-side'} expert-card-${founder.id}`}
                   initial={{ opacity: 0, scale: 0.8 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}

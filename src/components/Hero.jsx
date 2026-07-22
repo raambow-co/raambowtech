@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, useScroll, useTransform, useSpring, useMotionValue } from 'framer-motion';
+import { ShieldCheck } from 'lucide-react';
 import MagneticWrapper from './MagneticWrapper';
 import Hero3DBackground from './Hero3DBackground';
 
@@ -65,6 +66,17 @@ const Hero = ({ onContactClick }) => {
 
       <div className="container hero-container">
         <div className="hero-content">
+          <motion.div 
+            className="hero-msme-badge"
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+          >
+            <ShieldCheck size={16} className="msme-badge-icon" />
+            <span>Govt. Registered MSME Enterprise</span>
+            <span className="msme-badge-flag">🇮🇳</span>
+          </motion.div>
+
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -99,6 +111,8 @@ const Hero = ({ onContactClick }) => {
               </motion.button>
             </MagneticWrapper>
 
+            {/* Our Approach button - Code preserved but hidden from view */}
+            {/* 
             <MagneticWrapper strength={0.15}>
               <motion.a 
                 href="#workflow" 
@@ -108,7 +122,8 @@ const Hero = ({ onContactClick }) => {
               >
                 Our Approach
               </motion.a>
-            </MagneticWrapper>
+            </MagneticWrapper> 
+            */}
           </motion.div>
         </div>
       </div>

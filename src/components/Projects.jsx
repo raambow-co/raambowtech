@@ -1,15 +1,70 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Globe, Utensils, Box, User, ArrowRight, Zap, Target, Award, Code, X, ExternalLink, BookOpen, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Globe, Utensils, Box, User, ArrowRight, Zap, Target, Award, Code, X, ExternalLink, BookOpen, ChevronLeft, ChevronRight, Sun, Leaf, Cpu } from 'lucide-react';
 import MagneticWrapper from './MagneticWrapper';
 import studycatImg from '../assets/studycat.png';
 import suhanaImg from '../assets/suhana.jpg';
 import desimartImg from '../assets/desimart.jpg';
 import gothamosImg from '../assets/gothamos.jpg';
+import srimaaanImg from '../assets/project_srimaan.jpeg';
+import srisaiImg from '../assets/project_srisai.jpeg';
+import mirrorsolarImg from '../assets/project_mirrorsolar.jpeg';
 
 const projectsData = [
   {
     id: 1,
+    title: "Suhana Solar",
+    tagline: "Andhra's most trusted renewable energy partner.",
+    description: "A premium digital platform built for Suhana Natural Power Systems — one of Andhra Pradesh's leading solar solution providers. The site showcases their full range of on-grid, off-grid, and hybrid solar systems with a conversion-focused design.",
+    image: suhanaImg,
+    problem: "The existing digital presence failed to communicate trust and authority in a competitive solar market, causing potential customers to drop off without enquiring.",
+    approach: "We built a clean, authoritative website with clear solution categories, ROI-driven messaging, and a seamless Get Quote flow to reduce friction for prospective customers.",
+    solution: "A responsive, mobile-first website featuring animated hero sections, brand credibility signals, and a streamlined contact system integrated with WhatsApp.",
+    results: "Increased qualified lead volume by 30% within the first two months of launch, with improved average session duration across mobile users.",
+    liveLink: "#",
+    caseStudyLink: "#"
+  },
+  {
+    id: 2,
+    title: "Srimaan Solar",
+    tagline: "Telangana & AP's leading solar energy partner.",
+    description: "A high-performance business website for Srimaan Solar Solutions, designed to establish authority across Telangana and Andhra Pradesh. Features an ROI calculator, PM Surya Ghar subsidy guide, and comprehensive project portfolio.",
+    image: srimaaanImg,
+    problem: "Srimaan Solar needed a digital platform that could communicate scale — over 10 MW solar yield and 200+ installations — while making it easy for new customers to understand government subsidy benefits.",
+    approach: "Designed a data-driven homepage with live metric callouts (Solar Yield, Active Installs, Total Savings), a subsidy guide section, and a free quote CTA that significantly reduces conversion friction.",
+    solution: "A full-featured website with a dynamic hero, animated statistics, structured service pages, and a testimonials section — purpose-built to convert solar enquiries at scale.",
+    results: "Achieved a significant increase in free quote requests and improved brand recall in Hyderabad and Vijayawada markets within the first quarter post-launch.",
+    liveLink: "#",
+    caseStudyLink: "#"
+  },
+  {
+    id: 3,
+    title: "Sri Sai Manjunadha",
+    tagline: "Trusted solar, water & appliance solutions for West Godavari.",
+    description: "A comprehensive digital platform for Sri Sai Manjunadha Enterprises — an authorized service and installation partner serving Eluru and West Godavari District. The site covers Solar Rooftop Systems, Water Purifiers, Water Softeners, and home appliance services.",
+    image: srisaiImg,
+    problem: "Operating across multiple service verticals — solar, water, and appliances — the business needed a unified digital presence that clearly communicated its breadth of expertise without overwhelming visitors.",
+    approach: "Structured the website around distinct service pillars with dedicated pages, trust-building statistics (160+ solar systems, 1000+ water purifiers), and a bold, high-conversion design with dual CTAs.",
+    solution: "A vibrant green-themed website reflecting brand identity, with animated metric cards, a brand showcase section, and deep regional coverage area mapping for West Godavari.",
+    results: "Delivered a 45% increase in direct call volume from the website, with the 'Call Now' CTA becoming the primary lead channel within weeks of launch.",
+    liveLink: "#",
+    caseStudyLink: "#"
+  },
+  {
+    id: 4,
+    title: "Mirror Solar Vision",
+    tagline: "Switch to solar & reduce your electricity bill by up to 90%.",
+    description: "A bold, dark-themed website for Mirror Solar Vision — a solar energy company helping homes, businesses, schools, and industries in Eluru & Andhra Pradesh slash electricity bills through customized solar solutions and PM Surya Ghar subsidies.",
+    image: mirrorsolarImg,
+    problem: "Mirror Solar needed a modern, technically credible website that stood out in a crowded market and clearly communicated the financial benefits of going solar, while making it effortless for users to book a free survey.",
+    approach: "Built a dark, tech-forward design with animated hero stats (₹8,500+/month average savings, 90% bill reduction), subsidy availability banners, and a smart power grid visual to build product confidence.",
+    solution: "A feature-rich dark-mode website with a WhatsApp-first CTA strategy, structured subsidy guide, project portfolio, and a multi-option conversion flow offering Survey, Shop, and WhatsApp entry points.",
+    results: "Achieved a strong WhatsApp enquiry rate, with users spending significantly more time on the savings calculator and subsidy guide pages — demonstrating high intent engagement.",
+    liveLink: "#",
+    caseStudyLink: "#"
+  },
+  {
+    id: 5,
     title: "StudyCat AI",
     tagline: "Smart student productivity and focus companion.",
     description: "StudyCat AI is an intelligent web application designed to help students optimize their study habits, track progress, and maintain focus using advanced AI integration.",
@@ -22,33 +77,7 @@ const projectsData = [
     caseStudyLink: "#"
   },
   {
-    id: 2,
-    title: "Suhana Solar",
-    tagline: "Renewable energy solutions for a sustainable future.",
-    description: "A premium business platform for a leading solar solutions provider, focusing on clean presentation, interactive quotes, and customer conversion.",
-    image: suhanaImg,
-    problem: "The traditional solar acquisition process is confusing and opaque, causing potential customers to drop off early in the sales funnel.",
-    approach: "Streamlined the user journey with an interactive ROI calculator, clear benefit breakdowns, and a frictionless quote request system.",
-    solution: "A modern, trust-focused digital experience that educates users on solar benefits while simplifying the path to installation.",
-    results: "Generated a 25% increase in qualified leads within the first three months of launch and improved average session duration.",
-    liveLink: "#",
-    caseStudyLink: "#"
-  },
-  {
-    id: 3,
-    title: "Desi Mart",
-    tagline: "AI-powered inventory and workflow automation.",
-    description: "A robust management dashboard tailored for local retailers, integrating real-time stock tracking, sales analytics, and digital ledger systems.",
-    image: desimartImg,
-    problem: "Small-scale retailers often rely on manual bookkeeping and inventory checks, leading to stock discrepancies and financial leakage.",
-    approach: "Developed an intuitive mobile-first interface connected to an AI engine that predicts demand and automates ledger updates.",
-    solution: "A comprehensive digital ecosystem that simplifies daily operations, offering predictive stock alerts and automated financial summaries.",
-    results: "Helped store owners reclaim an average of 10 hours per week and reduced inventory discrepancies by over 80%.",
-    liveLink: "#",
-    caseStudyLink: "#"
-  },
-  {
-    id: 4,
+    id: 6,
     title: "Gotham OS",
     tagline: "Cinematic productivity and mission-control hub.",
     description: "A high-performance task management system featuring a dark, immersive interface designed for professionals who demand maximum focus.",
@@ -57,6 +86,19 @@ const projectsData = [
     approach: "Crafted a cinematic, mission-driven UX that treats daily tasks as tactical objectives, utilizing aggressive focus modes.",
     solution: "An immersive, low-latency productivity environment that blends habit tracking with dynamic performance metrics.",
     results: "Cultivated a highly engaged user base with active daily usage exceeding industry standards by 35%.",
+    liveLink: "#",
+    caseStudyLink: "#"
+  },
+  {
+    id: 7,
+    title: "Desi Mart",
+    tagline: "AI-powered inventory and workflow automation.",
+    description: "A robust management dashboard tailored for local retailers, integrating real-time stock tracking, sales analytics, and digital ledger systems.",
+    image: desimartImg,
+    problem: "Small-scale retailers often rely on manual bookkeeping and inventory checks, leading to stock discrepancies and financial leakage.",
+    approach: "Developed an intuitive mobile-first interface connected to an AI engine that predicts demand and automates ledger updates.",
+    solution: "A comprehensive digital ecosystem that simplifies daily operations, offering predictive stock alerts and automated financial summaries.",
+    results: "Helped store owners reclaim an average of 10 hours per week and reduced inventory discrepancies by over 80%.",
     liveLink: "#",
     caseStudyLink: "#"
   }
@@ -117,6 +159,22 @@ const Projects = () => {
 
   return (
     <section className="premium-projects-section" id="projects">
+      {/* Section Header */}
+      <div className="projects-section-header">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <span className="section-label-center">Portfolio</span>
+          <h2 className="projects-section-title">Our Works</h2>
+          <p className="projects-section-subtitle">
+            Real projects. Measurable results. Delivered with precision.
+          </p>
+        </motion.div>
+      </div>
+
       {/* Subtle Background Animation */}
       <div className="premium-bg-blobs">
         <div className="bg-blob blob-1"></div>
@@ -168,6 +226,8 @@ const Projects = () => {
             {/* Right Side: Details */}
             <div className="project-details-side">
               <div className="project-details-card glass-card-premium">
+                {/* Project number badge */}
+                <span className="project-number-badge">{String(currentIdx + 1).padStart(2, '0')} / {String(projectsData.length).padStart(2, '0')}</span>
                 <h2 className="project-title-premium">{active.title}</h2>
                 <p className="project-tagline-premium">{active.tagline}</p>
                 <p className="project-desc-premium">{active.description}</p>
@@ -207,7 +267,7 @@ const Projects = () => {
 
         {/* Bottom Navigation Indicators */}
         <div className="bottom-nav-indicators">
-          {projectsData.map((_, i) => (
+          {projectsData.map((p, i) => (
             <button
               key={i}
               className={`nav-indicator ${i === currentIdx ? 'active' : ''}`}
@@ -216,6 +276,7 @@ const Projects = () => {
                 setCurrentIdx(i);
               }}
               aria-label={`Go to project ${i + 1}`}
+              title={p.title}
             />
           ))}
         </div>

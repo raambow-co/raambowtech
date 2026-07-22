@@ -1,17 +1,23 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import logoSriSai from '../assets/client_srisai.jpg';
+import logoMirrorAqua from '../assets/client_mirroraqua.png';
 import logoSuhana from '../assets/client_suhana.jpg';
-import logoMA from '../assets/client_ma.png';
-import logoMSV from '../assets/client_msv.png';
 import logoSushma from '../assets/client_sushma.jpg';
+import logoSriSai from '../assets/client_srisai.jpg';
+import logoMirrorSolar from '../assets/client_mirrorsolar.png';
+import logoBuildBharath from '../assets/client_buildbharath.png';
+import logoSrimaan from '../assets/client_srimaan.jpeg';
+import logoSolar6 from '../assets/client_solar6.jpeg';
 
 const clientLogos = [
-  { name: 'Sri Sai Manjunadha Enterprises', img: logoSriSai },
-  { name: 'Suhana Natural Power Systems', img: logoSuhana },
-  { name: 'MA Group', img: logoMA },
-  { name: 'MSV Group', img: logoMSV },
-  { name: 'Sushma Boutique', img: logoSushma }
+  { name: 'Mirror Aqua', img: logoMirrorAqua },
+  { name: 'Suhana Solar', img: logoSuhana },
+  { name: 'Sushma', img: logoSushma },
+  { name: 'Sri Sai Manjunadha', img: logoSriSai },
+  { name: 'Mirror Solar', img: logoMirrorSolar },
+  { name: 'Build Bharath', img: logoBuildBharath },
+  { name: 'Srimaan Solar', img: logoSrimaan },
+  { name: 'Solar 6', img: logoSolar6 }
 ];
 
 const Clients = () => {
@@ -28,7 +34,7 @@ const Clients = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2>Trusted by Innovators</h2>
+          <h2>Trusted by</h2>
           <p>We partner with ambitious teams to deliver exceptional digital platforms.</p>
         </motion.div>
       </div>
@@ -39,17 +45,31 @@ const Clients = () => {
         <div className="clients-marquee-track">
           {duplicatedLogos.map((logo, idx) => (
             <div className="client-logo-card glass-card" key={`${logo.name}-${idx}`}>
-              <img 
-                src={logo.img} 
-                alt={logo.name} 
-                className="client-logo-img" 
-                style={{ 
-                  maxWidth: '100%', 
-                  maxHeight: '100%', 
-                  objectFit: 'contain',
-                  mixBlendMode: 'multiply' 
-                }} 
-              />
+              {logo.img ? (
+                <img 
+                  src={logo.img} 
+                  alt={logo.name} 
+                  className="client-logo-img" 
+                  style={{ 
+                    maxWidth: '100%', 
+                    maxHeight: '100%', 
+                    objectFit: 'contain',
+                    mixBlendMode: 'multiply',
+                    ...(logo.name === 'Solar 6' ? {
+                      borderRadius: '50%',
+                      width: '80px',
+                      height: '80px',
+                      objectFit: 'cover',
+                      objectPosition: 'center',
+                      mixBlendMode: 'normal',
+                    } : {})
+                  }} 
+                />
+              ) : (
+                <div className="client-text-logo">
+                  <span className="client-text-badge">{logo.name}</span>
+                </div>
+              )}
             </div>
           ))}
         </div>

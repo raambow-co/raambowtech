@@ -199,16 +199,3 @@ We provide regular updates.
 We focus on delivering real value.
 
 We ensure client satisfaction.
-
----
-
-## Future Roadmap
-We aim to expand our team.
-
-We plan to build SaaS products.
-
-We want to work with global clients.
-
-We aim to improve our technical capabilities.
-
-We focus on long-term growth and innovation.

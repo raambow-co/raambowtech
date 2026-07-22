@@ -6,8 +6,8 @@ import { About, Services, TeamSection } from './components/AboutServices';
 import Projects from './components/Projects';
 import { Workflow, TechStack } from './components/WorkflowTech';
 import Clients from './components/Clients';
-import Roadmap from './components/Roadmap';
 import EnquirySection from './components/EnquirySection';
+import MsmeBadge from './components/MsmeBadge';
 import Footer from './components/Footer';
 import ContactModal from './components/ContactModal';
 import { Home, Briefcase, Layers, Cpu, Mail, X, Linkedin, MessageCircle } from 'lucide-react';
@@ -19,9 +19,8 @@ function App() {
 
   const menuItems = [
     { label: 'About', ariaLabel: 'Learn about us', link: '#about' },
-    { label: 'Services', ariaLabel: 'View our services', link: '#services' },
     { label: 'Projects', ariaLabel: 'View our projects', link: '#projects' },
-    { label: 'Workflow', ariaLabel: 'Our workflow', link: '#workflow' },
+    { label: 'Services', ariaLabel: 'View our services', link: '#services' },
     { label: 'Tech Stack', ariaLabel: 'Our technology stack', link: '#stack' },
   ];
 
@@ -34,9 +33,8 @@ function App() {
 
   const dockItems = [
     { icon: <Home size={24} />, label: 'Home', onClick: () => window.scrollTo({ top: 0, behavior: 'smooth' }) },
-    { icon: <Briefcase size={24} />, label: 'Services', onClick: () => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' }) },
     { icon: <Layers size={24} />, label: 'Projects', onClick: () => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' }) },
-    { icon: <Cpu size={24} />, label: 'Workflow', onClick: () => document.getElementById('workflow')?.scrollIntoView({ behavior: 'smooth' }) },
+    { icon: <Briefcase size={24} />, label: 'Services', onClick: () => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' }) },
     { icon: <Mail size={24} />, label: 'Contact', onClick: () => setShowContactModal(true) },
   ];
 
@@ -56,12 +54,13 @@ function App() {
         <Hero onContactClick={() => setShowContactModal(true)} />
         <Clients />
         <About />
-        <Services onContactClick={() => setShowContactModal(true)} />
         <Projects />
-        <Workflow />
+        <Services onContactClick={() => setShowContactModal(true)} />
+        {/* Our Approach / Workflow section - Code preserved in codebase but hidden from view */}
+        {/* <Workflow /> */}
         <TechStack />
-        <Roadmap />
         <TeamSection />
+        <MsmeBadge />
         <EnquirySection />
       </main>
       <Footer onLinkedInClick={() => setShowLinkedInModal(true)} />

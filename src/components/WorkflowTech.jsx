@@ -116,9 +116,11 @@ const TechStack = () => {
     { icon: <Wrench />, title: "Tools", desc: "Version control via Git/GitHub. Prototyping in Figma. Netlify & Vercel deployment." }
   ];
 
+  const duplicatedStack = [...stack, ...stack, ...stack, ...stack, ...stack, ...stack];
+
   return (
-    <section className="stack section bg-darker" id="stack">
-      <div className="container">
+    <section className="stack section bg-darker" id="stack" style={{ overflow: 'hidden', position: 'relative' }}>
+      <div className="container" style={{ position: 'relative', zIndex: 2 }}>
         <motion.div 
           className="section-title"
           initial={{ opacity: 0, y: 20 }}
@@ -128,24 +130,44 @@ const TechStack = () => {
           <h2>Technical Stack</h2>
           <p>Modern tools for reliable, scalable output.</p>
         </motion.div>
+      </div>
 
-        <div className="stack-showcase">
-          {stack.map((item, index) => (
-            <MagneticWrapper key={item.title} strength={0.08}>
-              <motion.div 
-                className="stack-category glass-card"
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.15 }}
-                whileHover={{ scale: 1.02 }}
-              >
-                <h3><span className="icon-span">{item.icon}</span> {item.title}</h3>
-                <p>{item.desc}</p>
-              </motion.div>
-            </MagneticWrapper>
+      <div className="stack-marquee-container" style={{ 
+        position: 'relative', 
+        width: '100%', 
+        overflow: 'hidden', 
+        padding: '2rem 0',
+        marginTop: '1rem'
+      }}>
+        {/* Left and Right Fade overlays for high-end look - using percentages for mobile responsiveness */}
+        <div style={{ position: 'absolute', top: 0, left: 0, bottom: 0, width: '10%', background: 'linear-gradient(to right, var(--clr-bg-darker), transparent)', zIndex: 10, pointerEvents: 'none' }} />
+        <div style={{ position: 'absolute', top: 0, right: 0, bottom: 0, width: '10%', background: 'linear-gradient(to left, var(--clr-bg-darker), transparent)', zIndex: 10, pointerEvents: 'none' }} />
+
+        <motion.div 
+          className="stack-marquee-track"
+          style={{ display: 'flex', gap: '3rem', width: 'max-content', padding: '0 2rem' }}
+          animate={{ x: ["-50%", "0%"] }} // Left to right scrolling!
+          transition={{ ease: "linear", duration: 30, repeat: Infinity }}
+        >
+          {duplicatedStack.map((item, index) => (
+            <motion.div 
+              key={`${item.title}-${index}`}
+              className="stack-category glass-card"
+              style={{ width: 'min(85vw, 350px)', flexShrink: 0, position: 'relative', overflow: 'hidden' }}
+              whileHover={{ 
+                scale: 1.05, 
+                y: -10,
+                boxShadow: "0 20px 40px rgba(147, 5, 0, 0.2)",
+                borderColor: "rgba(147, 5, 0, 0.5)"
+              }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }}
+            >
+              <div style={{ position: 'absolute', top: '-50px', right: '-50px', width: '100px', height: '100px', background: 'rgba(147, 5, 0, 0.15)', borderRadius: '50%', filter: 'blur(30px)', zIndex: 0 }}></div>
+              <h3 style={{ position: 'relative', zIndex: 1 }}><span className="icon-span">{item.icon}</span> {item.title}</h3>
+              <p style={{ position: 'relative', zIndex: 1 }}>{item.desc}</p>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

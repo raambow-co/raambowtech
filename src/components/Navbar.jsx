@@ -29,7 +29,14 @@ const Navbar = () => {
         <MagneticWrapper strength={0.1}>
           <a href="#" className="logo" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.6rem' }}>
             <img src={logo} alt="RaamBow Logo" style={{ height: '35px', width: 'auto' }} />
-            <span><span style={{ color: '#113E78' }}>Raam</span><span style={{ color: '#F06222' }}>Bow</span><span style={{ fontWeight: '400', fontSize: '0.9rem', marginLeft: '0.3rem', color: 'var(--clr-text-muted)' }}>TechSolutions</span></span>
+            <span style={{ display: 'flex', flexDirection: 'column', lineHeight: '1.15' }}>
+              <span>
+                <span style={{ color: '#113E78' }}>Raam</span><span style={{ color: '#F06222' }}>Bow</span><span style={{ fontWeight: '400', fontSize: '0.9rem', marginLeft: '0.3rem', color: 'var(--clr-text-muted)' }}>TechSolutions</span>
+              </span>
+              <span style={{ fontSize: '0.6rem', fontWeight: '500', letterSpacing: '0.04em', color: 'var(--clr-text-muted)', opacity: 0.75, marginTop: '1px' }}>
+                🏛️ Govt. Registered MSME Enterprise
+              </span>
+            </span>
           </a>
         </MagneticWrapper>
 

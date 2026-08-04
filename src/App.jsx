@@ -49,6 +49,7 @@ function App() {
         accentColor="#930500"
         colors={['#930500', '#1A1C2C', '#95BBEA']}
         onLinkedInClick={() => setShowLinkedInModal(true)}
+        onContactClick={() => setShowContactModal(true)}
       />
       <main>
         <Hero onContactClick={() => setShowContactModal(true)} />

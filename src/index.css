@@ -1112,7 +1112,7 @@ a:hover {
 
 .team-marquee-container {
   width: 100%;
-  overflow: hidden;
+  overflow: hidden; /* Fallback */
   padding: 0.5rem 0;
   position: relative;
   mask-image: linear-gradient(
@@ -1130,33 +1130,25 @@ a:hover {
     transparent 100%
   );
 }
+.team-marquee-container::-webkit-scrollbar {
+  display: none;
+}
 
 .team-marquee-track {
   display: flex;
-  gap: 2.5rem;
   width: max-content;
-  animation: marquee-scroll 35s linear infinite;
-  will-change: transform;
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-  transform: translateZ(0);
-  -webkit-transform: translateZ(0);
+  gap: 3rem;
+  padding: 2rem 0;
+  cursor: grab;
+  /* Removed animation to allow manual JS scrolling */
 }
 
-.team-marquee-container:hover .team-marquee-track {
-  animation-play-state: paused;
+.team-marquee-track:active {
+  cursor: grabbing;
 }
 
-@keyframes marquee-scroll {
-  0% {
-    transform: translateX(0) translateZ(0);
-  }
-  100% {
-    /* Translate by exactly 50% because we duplicated the items list once */
-    transform: translateX(-50%) translateZ(0);
-  }
-}
-
+/* Hover pause removed as we use JS auto-scroll now */
+/* Marquee animation removed */
 .marquee-profile-card {
   background: transparent;
   border: none;
@@ -3140,13 +3132,17 @@ a:hover {
 
 .clients-marquee-container {
   position: relative;
-  overflow: hidden;
   width: 100%;
+  overflow: hidden; /* Fallback */
   display: flex;
   align-items: center;
   padding: 1.5rem 0 3.5rem;
   mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
   -webkit-mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
+}
+
+.clients-marquee-container::-webkit-scrollbar {
+  display: none;
 }
 
 .clients-marquee-fade {
@@ -3170,9 +3166,15 @@ a:hover {
 
 .clients-marquee-track {
   display: flex;
-  gap: 2.5rem;
   width: max-content;
-  animation: scroll-marquee 25s linear infinite;
+  gap: 3rem;
+  padding: 1rem 0;
+  cursor: grab;
+  /* Removed animation to allow manual JS scrolling */
+}
+
+.clients-marquee-track:active {
+  cursor: grabbing;
 }
 
 .client-logo-card.glass-card {
@@ -3230,15 +3232,6 @@ a:hover {
   color: var(--clr-accent-primary);
   border-color: rgba(147, 5, 0, 0.3);
   background: rgba(147, 5, 0, 0.08);
-}
-
-@keyframes scroll-marquee {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(calc(-100% / 3));
-  }
 }
 
 @media (max-width: 768px) {

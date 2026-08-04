@@ -142,6 +142,69 @@ export const TeamSection = () => {
     { name: "Teja Dumpa", role: "Photo & Videographer", degree: "B.Tech (ECE)", img: tejaImg },
   ];
 
+  const marqueeRef = useRef(null);
+  let animationRef = useRef(null);
+  const isDragging = useRef(false);
+  const startX = useRef(0);
+  const scrollLeft = useRef(0);
+
+  useEffect(() => {
+    const marquee = marqueeRef.current;
+    if (!marquee) return;
+
+    const scroll = () => {
+      if (!isDragging.current) {
+        marquee.scrollLeft += 1.5; // fast scroll
+        if (marquee.scrollLeft >= marquee.scrollWidth / 2) {
+          marquee.scrollLeft = 0;
+        }
+      }
+      animationRef.current = requestAnimationFrame(scroll);
+    };
+    
+    animationRef.current = requestAnimationFrame(scroll);
+    return () => cancelAnimationFrame(animationRef.current);
+  }, []);
+
+  const handleMouseDown = (e) => {
+    isDragging.current = true;
+    startX.current = e.pageX - marqueeRef.current.offsetLeft;
+    scrollLeft.current = marqueeRef.current.scrollLeft;
+  };
+
+  const handleMouseLeave = () => {
+    isDragging.current = false;
+  };
+
+  const handleMouseUp = () => {
+    isDragging.current = false;
+  };
+
+  const handleMouseMove = (e) => {
+    if (!isDragging.current) return;
+    e.preventDefault();
+    const x = e.pageX - marqueeRef.current.offsetLeft;
+    const walk = (x - startX.current) * 2;
+    marqueeRef.current.scrollLeft = scrollLeft.current - walk;
+  };
+
+  const handleTouchStart = (e) => {
+    isDragging.current = true;
+    startX.current = e.touches[0].pageX - marqueeRef.current.offsetLeft;
+    scrollLeft.current = marqueeRef.current.scrollLeft;
+  };
+
+  const handleTouchMove = (e) => {
+    if (!isDragging.current) return;
+    const x = e.touches[0].pageX - marqueeRef.current.offsetLeft;
+    const walk = (x - startX.current) * 2;
+    marqueeRef.current.scrollLeft = scrollLeft.current - walk;
+  };
+
+  const handleTouchEnd = () => {
+    isDragging.current = false;
+  };
+
   return (
     <section className="about section" id="team">
       <div className="container">
@@ -175,7 +238,7 @@ export const TeamSection = () => {
                   transition={{ duration: 0.6, delay: 0.2 + (index * 0.15) }}
                 >
                   <div className="profile-frame">
-                    <img src={founder.img} alt={founder.name} style={{ objectPosition: founder.objectPosition }} />
+                    <img src={founder.img} alt={founder.name} style={{ objectPosition: founder.objectPosition }} draggable="false" />
                   </div>
                   <div className="profile-info">
                     <h4>{founder.name}</h4>
@@ -193,12 +256,23 @@ export const TeamSection = () => {
               <div className="title-divider"></div>
             </div>
             
-            <div className="team-marquee-container">
+            <div 
+              className="team-marquee-container"
+              ref={marqueeRef}
+              onMouseDown={handleMouseDown}
+              onMouseLeave={handleMouseLeave}
+              onMouseUp={handleMouseUp}
+              onMouseMove={handleMouseMove}
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+              onTouchEnd={handleTouchEnd}
+              style={{ overflowX: 'auto', scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+            >
               <div className="team-marquee-track">
-                {[...scrollMembers, ...scrollMembers].map((member, index) => (
+                {[...scrollMembers, ...scrollMembers, ...scrollMembers, ...scrollMembers].map((member, index) => (
                   <div key={index} className="marquee-profile-card">
                     <div className="marquee-profile-frame">
-                      <img src={member.img} alt={member.name} />
+                      <img src={member.img} alt={member.name} draggable="false" />
                     </div>
                     <div className="marquee-profile-info">
                       <h5>{member.name}</h5>

@@ -1,14 +1,14 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import logoMirrorAqua from '../assets/client_mirroraqua.png';
-import logoSuhana from '../assets/client_suhana.jpg';
-import logoSushma from '../assets/client_sushma.jpg';
-import logoSriSai from '../assets/client_srisai.jpg';
-import logoMirrorSolar from '../assets/client_mirrorsolar.png';
-import logoBuildBharath from '../assets/client_buildbharath.png';
-import logoSrimaan from '../assets/client_srimaan.jpeg';
-import logoSolar6 from '../assets/client_solar6.jpeg';
-import logoJayarams from '../assets/jayarams-emblem-alpha.png';
+import logoMirrorAqua from '../assets/client_mirroraqua.webp';
+import logoSuhana from '../assets/client_suhana.webp';
+import logoSushma from '../assets/client_sushma.webp';
+import logoSriSai from '../assets/client_srisai.webp';
+import logoMirrorSolar from '../assets/client_mirrorsolar.webp';
+import logoBuildBharath from '../assets/client_buildbharath.webp';
+import logoSrimaan from '../assets/client_srimaan.webp';
+import logoSolar6 from '../assets/client_solar6.webp';
+import logoJayarams from '../assets/jayarams-emblem-alpha.webp';
 
 const clientLogos = [
   { name: 'Mirror Aqua', img: logoMirrorAqua },
@@ -126,6 +126,8 @@ const Clients = () => {
                   src={logo.img} 
                   alt={logo.name} 
                   className="client-logo-img" 
+                  loading="lazy"
+                  decoding="async"
                   style={{ 
                     maxWidth: '100%', 
                     maxHeight: '100%', 

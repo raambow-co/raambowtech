@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Linkedin, Instagram, Mail, ArrowRight, MessageCircle } from 'lucide-react';
 import MagneticWrapper from './MagneticWrapper';
-import logo from '../assets/logo.png';
+import logo from '../assets/logo.webp';
 
 const Footer = ({ onLinkedInClick }) => {
   const currentYear = new Date().getFullYear();
@@ -43,7 +43,7 @@ const Footer = ({ onLinkedInClick }) => {
           {/* Brand & Narrative Column */}
           <div className="footer-column">
             <a href="#" className="logo" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.6rem', marginBottom: '0.5rem' }}>
-              <img src={logo} alt="RaamBow Logo" style={{ height: '65px', width: 'auto' }} />
+              <img src={logo} alt="RaamBow Logo" style={{ height: '65px', width: 'auto' }} loading="lazy" decoding="async" />
               <span>
                 <span style={{ color: '#113E78' }}>Raam</span>
                 <span style={{ color: '#F06222' }}>Bow</span>

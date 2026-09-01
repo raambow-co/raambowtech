@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import './StaggeredMenu.css';
 import MagneticWrapper from './MagneticWrapper';
-import logo from '../assets/logo.png';
+import logo from '../assets/logo.webp';
 
 export const StaggeredMenu = ({
   isFixed = true,
@@ -54,7 +54,7 @@ export const StaggeredMenu = ({
         <div className="sm-logo">
            <MagneticWrapper strength={0.1}>
             <a href="#" className="sm-logo-text" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}>
-                <img src={logo} alt="RaamBow Logo" />
+                <img src={logo} alt="RaamBow Logo" loading="eager" decoding="async" />
                 <span>
                   <span style={{ color: '#113E78' }}>Raam</span>
                   <span style={{ color: '#F06222' }}>Bow</span>

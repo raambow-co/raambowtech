@@ -2,13 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Globe, Utensils, Box, User, ArrowRight, Zap, Target, Award, Code, X, ExternalLink, BookOpen, ChevronLeft, ChevronRight, Sun, Leaf, Cpu } from 'lucide-react';
 import MagneticWrapper from './MagneticWrapper';
-import studycatImg from '../assets/studycat.png';
-import suhanaImg from '../assets/suhana.jpg';
-import desimartImg from '../assets/desimart.jpg';
-import gothamosImg from '../assets/gothamos.jpg';
-import srimaaanImg from '../assets/project_srimaan.jpeg';
-import srisaiImg from '../assets/project_srisai.jpeg';
-import mirrorsolarImg from '../assets/project_mirrorsolar.jpeg';
+import studycatImg from '../assets/studycat.webp';
+import suhanaImg from '../assets/suhana.webp';
+import desimartImg from '../assets/desimart.webp';
+import gothamosImg from '../assets/gothamos.webp';
+import srimaaanImg from '../assets/project_srimaan.webp';
+import srisaiImg from '../assets/project_srisai.webp';
+import mirrorsolarImg from '../assets/project_mirrorsolar.webp';
 
 const projectsData = [
   {
@@ -219,7 +219,7 @@ const Projects = () => {
             <div className="project-visual-side">
               <div className="image-glow-backdrop-premium"></div>
               <div className="image-frame-premium-new">
-                <img src={active.image} alt={active.title} className="showcase-image" />
+                <img src={active.image} alt={active.title} className="showcase-image" loading="lazy" decoding="async" />
               </div>
             </div>
 

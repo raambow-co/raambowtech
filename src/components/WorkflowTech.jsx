@@ -2,13 +2,13 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Code, Server, Wrench } from 'lucide-react';
 import MagneticWrapper from './MagneticWrapper';
-import stepAnalysis from '../assets/step_analysis.png';
-import stepDesign from '../assets/step_design.png';
-import stepDev from '../assets/step_dev.png';
-import stepTesting from '../assets/step_testing.png';
-import stepLaunch from '../assets/step_launch.png';
-import stepMaintenance from '../assets/step_maintenance.png';
-import workflowBg from '../assets/approach_navigation_map_bg_1776528696281.png';
+import stepAnalysis from '../assets/step_analysis.webp';
+import stepDesign from '../assets/step_design.webp';
+import stepDev from '../assets/step_dev.webp';
+import stepTesting from '../assets/step_testing.webp';
+import stepLaunch from '../assets/step_launch.webp';
+import stepMaintenance from '../assets/step_maintenance.webp';
+import workflowBg from '../assets/approach_navigation_map_bg_1776528696281.webp';
 
 const Workflow = () => {
   const steps = [
@@ -98,7 +98,7 @@ const Workflow = () => {
                   viewport={{ once: true, margin: "-100px" }}
                   transition={{ duration: 0.7, delay: 0.15 }}
                 >
-                  <img src={step.img} alt={step.title} />
+                  <img src={step.img} alt={step.title} loading="lazy" decoding="async" />
                 </motion.div>
               </div>
             </div>

@@ -2,15 +2,15 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { CheckCircle, Laptop, Palette, Layers, Gauge, ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 import MagneticWrapper from './MagneticWrapper';
-import founder1 from '../assets/founder_1.jpg';
-import founder2 from '../assets/founder_2.jpg';
-import alisha from '../assets/alisha.jpeg';
-import logoImg from '../assets/logo.png';
-import kheerthanaImg from '../assets/Kheerthana Nambu.jpeg';
-import kesavanImg from '../assets/Kesavan P.jpeg';
-import manaswiniImg from '../assets/Manaswini I.jpeg';
-import charanImg from '../assets/Charan J.jpeg';
-import tejaImg from '../assets/teja.jpeg';
+import founder1 from '../assets/founder_1.webp';
+import founder2 from '../assets/founder_2.webp';
+import alisha from '../assets/alisha.webp';
+import logoImg from '../assets/logo.webp';
+import kheerthanaImg from '../assets/Kheerthana Nambu.webp';
+import kesavanImg from '../assets/Kesavan P.webp';
+import manaswiniImg from '../assets/Manaswini I.webp';
+import charanImg from '../assets/Charan J.webp';
+import tejaImg from '../assets/teja.webp';
 
 const About = () => {
   const checklist = [
@@ -238,7 +238,7 @@ export const TeamSection = () => {
                   transition={{ duration: 0.6, delay: 0.2 + (index * 0.15) }}
                 >
                   <div className="profile-frame">
-                    <img src={founder.img} alt={founder.name} style={{ objectPosition: founder.objectPosition }} draggable="false" />
+                    <img src={founder.img} alt={founder.name} style={{ objectPosition: founder.objectPosition }} draggable="false" loading="lazy" decoding="async" />
                   </div>
                   <div className="profile-info">
                     <h4>{founder.name}</h4>
@@ -272,7 +272,7 @@ export const TeamSection = () => {
                 {[...scrollMembers, ...scrollMembers, ...scrollMembers, ...scrollMembers].map((member, index) => (
                   <div key={index} className="marquee-profile-card">
                     <div className="marquee-profile-frame">
-                      <img src={member.img} alt={member.name} draggable="false" />
+                      <img src={member.img} alt={member.name} draggable="false" loading="lazy" decoding="async" />
                     </div>
                     <div className="marquee-profile-info">
                       <h5>{member.name}</h5>
@@ -290,12 +290,12 @@ export const TeamSection = () => {
   );
 };
 
-import serviceWebDev from '../assets/service_web_dev.png';
-import serviceUIUX from '../assets/service_uiux.png';
-import serviceWebApps from '../assets/service_web_apps.png';
-import servicePerfOpt from '../assets/service_perf_opt.png';
+import serviceWebDev from '../assets/service_web_dev.webp';
+import serviceUIUX from '../assets/service_uiux.webp';
+import serviceWebApps from '../assets/service_web_apps.webp';
+import servicePerfOpt from '../assets/service_perf_opt.webp';
 
-import servicesBg from '../assets/services_bg.png';
+import servicesBg from '../assets/services_bg.webp';
 
 const Services = ({ onContactClick }) => {
   const [current, setCurrent] = useState(0);
@@ -476,6 +476,8 @@ const Services = ({ onContactClick }) => {
                   <motion.img 
                     src={active.img} 
                     alt={active.title}
+                    loading="lazy"
+                    decoding="async"
                     initial={{ scale: 1.06, opacity: 0.8 }}
                     animate={{ scale: 1, opacity: 1 }}
                     transition={{ duration: 0.6, ease: "easeOut" }}

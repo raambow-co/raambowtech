@@ -210,9 +210,6 @@ const Footer = ({ onLinkedInClick, onPrivacyClick, onTermsClick }) => {
         <hr className="footer-divider" />
 
         <div className="footer-bottom">
-          <p className="copyright">
-            Registered Government Company
-          </p>
           <div className="legal-links">
             <button 
               type="button" 

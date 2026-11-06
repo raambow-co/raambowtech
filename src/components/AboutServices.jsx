@@ -16,7 +16,7 @@ const About = () => {
   const checklist = [
     "Agile & Flexible Workflow",
     "Direct Client Communication",
-    "Mobile-First Approach"
+    "Serving AP (Eluru, Tadepalligudem, Rajahmundry) & Global Clients"
   ];
 
   const founders = [
@@ -49,7 +49,7 @@ const About = () => {
             <p className="subtitle">Execution-driven digital solutions.</p>
             
             <p className="about-statement">
-              A compact team building modern, scalable web products with speed, precision, and purpose.
+              Headquartered in Andhra Pradesh, our team crafts high-performance web products and custom digital solutions for ambitious businesses in Eluru, Tadepalligudem, Rajahmundry, and worldwide.
             </p>
 
             <ul className="about-list">
@@ -90,7 +90,7 @@ const About = () => {
                     transition={{ duration: 0.6, delay: 0.2 + (i * 0.15) }}
                   >
                     <div className="profile-frame">
-                      <img src={founder.img} alt={founder.name} style={{ objectPosition: founder.objectPosition }} />
+                      <img src={founder.img} alt={`${founder.name} - ${founder.role} at RaamBow Technologies`} style={{ objectPosition: founder.objectPosition }} loading="lazy" decoding="async" />
                     </div>
                     <div className="profile-info">
                       <h4>{founder.name}</h4>
@@ -110,7 +110,7 @@ const About = () => {
                   transition={{ duration: 0.6, delay: 0.5 }}
                 >
                   <div className="profile-frame">
-                    <img src={founders[2].img} alt={founders[2].name} style={{ objectPosition: founders[2].objectPosition }} />
+                    <img src={founders[2].img} alt={`${founders[2].name} - ${founders[2].role} at RaamBow Technologies`} style={{ objectPosition: founders[2].objectPosition }} loading="lazy" decoding="async" />
                   </div>
                   <div className="profile-info">
                     <h4>{founders[2].name}</h4>
@@ -238,7 +238,7 @@ export const TeamSection = () => {
                   transition={{ duration: 0.6, delay: 0.2 + (index * 0.15) }}
                 >
                   <div className="profile-frame">
-                    <img src={founder.img} alt={founder.name} style={{ objectPosition: founder.objectPosition }} draggable="false" loading="lazy" decoding="async" />
+                    <img src={founder.img} alt={`${founder.name} - ${founder.role} at RaamBow Technologies`} style={{ objectPosition: founder.objectPosition }} draggable="false" loading="lazy" decoding="async" />
                   </div>
                   <div className="profile-info">
                     <h4>{founder.name}</h4>
@@ -272,7 +272,7 @@ export const TeamSection = () => {
                 {[...scrollMembers, ...scrollMembers, ...scrollMembers, ...scrollMembers].map((member, index) => (
                   <div key={index} className="marquee-profile-card">
                     <div className="marquee-profile-frame">
-                      <img src={member.img} alt={member.name} draggable="false" loading="lazy" decoding="async" />
+                      <img src={member.img} alt={`${member.name} - ${member.role} at RaamBow Technologies`} draggable="false" loading="lazy" decoding="async" />
                     </div>
                     <div className="marquee-profile-info">
                       <h5>{member.name}</h5>

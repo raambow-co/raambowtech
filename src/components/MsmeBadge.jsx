@@ -44,7 +44,7 @@ const MsmeBadge = () => {
                 <span className="msme-india-flag" role="img" aria-label="India flag">🇮🇳</span>
               </div>
 
-              <h3 className="msme-title">MSME Registered Company</h3>
+              <h2 className="msme-title">Govt. Registered MSME Enterprise</h2>
 
               <p className="msme-desc">
                 Registered under the <strong>Ministry of Micro, Small &amp; Medium Enterprises (MSME)</strong>,

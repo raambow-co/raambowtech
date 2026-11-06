@@ -219,7 +219,7 @@ const Projects = () => {
             <div className="project-visual-side">
               <div className="image-glow-backdrop-premium"></div>
               <div className="image-frame-premium-new">
-                <img src={active.image} alt={active.title} className="showcase-image" loading="lazy" decoding="async" />
+                <img src={active.image} alt={`${active.title} Case Study & Web Development by RaamBow Technologies`} className="showcase-image" loading="lazy" decoding="async" />
               </div>
             </div>
 
@@ -228,7 +228,7 @@ const Projects = () => {
               <div className="project-details-card glass-card-premium">
                 {/* Project number badge */}
                 <span className="project-number-badge">{String(currentIdx + 1).padStart(2, '0')} / {String(projectsData.length).padStart(2, '0')}</span>
-                <h2 className="project-title-premium">{active.title}</h2>
+                <h3 className="project-title-premium">{active.title}</h3>
                 <p className="project-tagline-premium">{active.tagline}</p>
                 <p className="project-desc-premium">{active.description}</p>
 
@@ -237,6 +237,7 @@ const Projects = () => {
                     <a 
                       href={active.liveLink} 
                       className="btn-premium primary"
+                      aria-label={`View live website for ${active.title}`}
                       onClick={(e) => {
                         createRipple(e);
                         if (active.liveLink === '#') e.preventDefault();

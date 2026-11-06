@@ -28,7 +28,7 @@ const Navbar = () => {
       <div className="nav-wrapper">
         <MagneticWrapper strength={0.1}>
           <a href="#" className="logo" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.6rem' }}>
-            <img src={logo} alt="RaamBow Logo" style={{ height: '35px', width: 'auto' }} loading="eager" decoding="async" />
+            <img src={logo} alt="RaamBow Technologies Logo" style={{ height: '35px', width: 'auto' }} loading="eager" decoding="async" />
             <span style={{ display: 'flex', flexDirection: 'column', lineHeight: '1.15' }}>
               <span>
                 <span style={{ color: '#113E78' }}>Raam</span><span style={{ color: '#F06222' }}>Bow</span><span style={{ fontWeight: '400', fontSize: '0.9rem', marginLeft: '0.3rem', color: 'var(--clr-text-muted)' }}>TechSolutions</span>

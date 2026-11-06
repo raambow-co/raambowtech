@@ -99,7 +99,7 @@ const Clients = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2>Trusted by</h2>
+          <h2>Trusted by Industry Leaders</h2>
           <p>We partner with ambitious teams to deliver exceptional digital platforms.</p>
         </motion.div>
       </div>
@@ -124,7 +124,7 @@ const Clients = () => {
               {logo.img ? (
                 <img 
                   src={logo.img} 
-                  alt={logo.name} 
+                  alt={`${logo.name} - Client of RaamBow Technologies`} 
                   className="client-logo-img" 
                   loading="lazy"
                   decoding="async"

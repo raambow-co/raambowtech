@@ -1,4 +1,28 @@
+# Robots.txt for RaamBow Technologies (https://www.raambow.com)
 User-agent: *
 Allow: /
 
+# Dedicated directives for major search engines & AI assistants
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+# Host
+Host: https://www.raambow.com
+
+# XML Sitemaps
 Sitemap: https://www.raambow.com/sitemap.xml

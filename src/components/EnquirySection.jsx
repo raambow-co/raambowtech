@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Phone } from 'lucide-react';
+import { Mail, Phone, MapPin } from 'lucide-react';
 import HeroEnquiryForm from './HeroEnquiryForm';
 
 export default function EnquirySection() {
@@ -27,7 +27,7 @@ export default function EnquirySection() {
                 <Mail size={18} />
               </div>
               <div>
-                <h4>Email Us</h4>
+                <h3>Email Us</h3>
                 <a href="mailto:raambowtech@gmail.com" className="enquiry-link">raambowtech@gmail.com</a>
               </div>
             </div>
@@ -37,8 +37,20 @@ export default function EnquirySection() {
                 <Phone size={18} />
               </div>
               <div>
-                <h4>Call or WhatsApp</h4>
+                <h3>Call or WhatsApp</h3>
                 <a href="tel:+919490543499" className="enquiry-link">+91 94905 43499</a>
+              </div>
+            </div>
+
+            <div className="enquiry-detail-item">
+              <div className="icon-wrap-enquiry">
+                <MapPin size={18} />
+              </div>
+              <div>
+                <h3>Service Locations</h3>
+                <span className="enquiry-link" style={{ fontSize: '0.92rem', fontWeight: '500', color: 'var(--clr-text-muted)' }}>
+                  Eluru &bull; Tadepalligudem &bull; Rajahmundry &bull; AP
+                </span>
               </div>
             </div>
           </div>

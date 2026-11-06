@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, lazy, Suspense } from 'react';
 import { motion, useScroll, useTransform, useSpring, useMotionValue } from 'framer-motion';
 import { ShieldCheck } from 'lucide-react';
 import MagneticWrapper from './MagneticWrapper';
-import Hero3DBackground from './Hero3DBackground';
+
+const Hero3DBackground = lazy(() => import('./Hero3DBackground'));
 
 const Hero = ({ onContactClick }) => {
   // 1. All Hooks at the top
@@ -56,13 +57,15 @@ const Hero = ({ onContactClick }) => {
         transition={{ opacity: { duration: 0.8 } }}
       />
 
-      <motion.div 
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1.5, delay: 0.2 }}
-      >
-        <Hero3DBackground />
-      </motion.div>
+      <Suspense fallback={null}>
+        <motion.div 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1.5, delay: 0.2 }}
+        >
+          <Hero3DBackground />
+        </motion.div>
+      </Suspense>
 
       <div className="container hero-container">
         <div className="hero-content">
@@ -82,7 +85,7 @@ const Hero = ({ onContactClick }) => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
           >
-            Modern solutions.<br/><span className="text-glow">Clean execution.</span>
+            Modern Web Solutions.<br/><span className="text-glow">Clean Execution.</span>
           </motion.h1>
           
           <motion.p 

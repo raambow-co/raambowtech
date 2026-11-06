@@ -8,20 +8,24 @@ import { Workflow, TechStack } from './components/WorkflowTech';
 import Clients from './components/Clients';
 import EnquirySection from './components/EnquirySection';
 import MsmeBadge from './components/MsmeBadge';
+import FAQSection from './components/FAQSection';
 import Footer from './components/Footer';
 import ContactModal from './components/ContactModal';
+import { LegalModal } from './components/LegalModals';
 import { Home, Briefcase, Layers, Cpu, Mail, X, Linkedin, MessageCircle } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 function App() {
   const [showLinkedInModal, setShowLinkedInModal] = useState(false);
   const [showContactModal, setShowContactModal] = useState(false);
+  const [legalModal, setLegalModal] = useState({ isOpen: false, type: 'privacy' });
 
   const menuItems = [
     { label: 'About', ariaLabel: 'Learn about us', link: '#about' },
     { label: 'Projects', ariaLabel: 'View our projects', link: '#projects' },
     { label: 'Services', ariaLabel: 'View our services', link: '#services' },
     { label: 'Tech Stack', ariaLabel: 'Our technology stack', link: '#stack' },
+    { label: 'FAQ', ariaLabel: 'Frequently asked questions', link: '#faq' },
   ];
 
   const socialItems = [
@@ -62,9 +66,14 @@ function App() {
         <TechStack />
         <TeamSection />
         <MsmeBadge />
+        <FAQSection />
         <EnquirySection />
       </main>
-      <Footer onLinkedInClick={() => setShowLinkedInModal(true)} />
+      <Footer 
+        onLinkedInClick={() => setShowLinkedInModal(true)} 
+        onPrivacyClick={() => setLegalModal({ isOpen: true, type: 'privacy' })}
+        onTermsClick={() => setLegalModal({ isOpen: true, type: 'terms' })}
+      />
       <Dock items={dockItems} />
 
       {/* Premium LinkedIn Coming Soon Modal */}
@@ -72,6 +81,13 @@ function App() {
 
       {/* Premium Contact Modal */}
       <ContactModal isOpen={showContactModal} onClose={() => setShowContactModal(false)} />
+
+      {/* Legal / Policy Modal */}
+      <LegalModal 
+        isOpen={legalModal.isOpen} 
+        type={legalModal.type} 
+        onClose={() => setLegalModal({ isOpen: false, type: 'privacy' })} 
+      />
 
       {/* Floating WhatsApp Button */}
       <motion.a 

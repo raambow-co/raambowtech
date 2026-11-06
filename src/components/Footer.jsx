@@ -4,15 +4,15 @@ import { Linkedin, Instagram, Mail, ArrowRight, MessageCircle } from 'lucide-rea
 import MagneticWrapper from './MagneticWrapper';
 import logo from '../assets/logo.webp';
 
-const Footer = ({ onLinkedInClick }) => {
-  const currentYear = new Date().getFullYear();
+const Footer = ({ onLinkedInClick, onPrivacyClick, onTermsClick }) => {
 
   const footerLinks = {
     quickLinks: [
-      { name: 'Home', href: '#' },
+      { name: 'Home', href: '#home' },
       { name: 'About', href: '#about' },
       { name: 'Services', href: '#services' },
       { name: 'Projects', href: '#projects' },
+      { name: 'FAQ', href: '#faq' },
       { name: 'Contact', href: '#contact' },
     ],
     explore: [
@@ -42,8 +42,8 @@ const Footer = ({ onLinkedInClick }) => {
           
           {/* Brand & Narrative Column */}
           <div className="footer-column">
-            <a href="#" className="logo" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.6rem', marginBottom: '0.5rem' }}>
-              <img src={logo} alt="RaamBow Logo" style={{ height: '65px', width: 'auto' }} loading="lazy" decoding="async" />
+            <a href="/" className="logo" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.6rem', marginBottom: '0.5rem' }}>
+              <img src={logo} alt="RaamBow Technologies Logo" style={{ height: '65px', width: 'auto' }} loading="lazy" decoding="async" />
               <span>
                 <span style={{ color: '#113E78' }}>Raam</span>
                 <span style={{ color: '#F06222' }}>Bow</span>
@@ -197,7 +197,10 @@ const Footer = ({ onLinkedInClick }) => {
                 >
                   +91 94905 43499
                 </a>
-                <div style={{ marginTop: '0.2rem', opacity: 0.8, fontSize: '0.8rem' }}>Based in Andhra Pradesh, India</div>
+                <div style={{ marginTop: '0.3rem', opacity: 0.85, fontSize: '0.8rem', lineHeight: '1.4' }}>
+                  Headquartered in Andhra Pradesh<br />
+                  Serving Eluru &bull; Tadepalligudem &bull; Rajahmundry &bull; Worldwide
+                </div>
               </div>
             </motion.div>
           </div>
@@ -208,11 +211,25 @@ const Footer = ({ onLinkedInClick }) => {
 
         <div className="footer-bottom">
           <p className="copyright">
-            &copy; {currentYear} RaamBow TechSolutions. All rights reserved.
+            Registered Government Company
           </p>
           <div className="legal-links">
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms of Service</a>
+            <button 
+              type="button" 
+              onClick={onPrivacyClick} 
+              className="footer-legal-btn"
+              style={{ background: 'none', border: 'none', color: 'inherit', font: 'inherit', cursor: 'pointer', padding: 0 }}
+            >
+              Privacy Policy
+            </button>
+            <button 
+              type="button" 
+              onClick={onTermsClick} 
+              className="footer-legal-btn"
+              style={{ background: 'none', border: 'none', color: 'inherit', font: 'inherit', cursor: 'pointer', padding: 0 }}
+            >
+              Terms of Service
+            </button>
           </div>
         </div>
       </div>

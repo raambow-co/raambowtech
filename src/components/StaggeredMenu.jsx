@@ -26,6 +26,7 @@ export const StaggeredMenu = ({
     { label: 'About us', link: '#about' },
     { label: 'Our works', link: '#projects' },
     { label: 'What we do', link: '#services' },
+    { label: 'FAQ', link: '#faq' },
     { label: 'Our team', link: '#team' },
     { label: 'Contact', action: 'contact' }
   ];
@@ -53,8 +54,8 @@ export const StaggeredMenu = ({
       <header className="staggered-menu-header" aria-label="Main navigation header">
         <div className="sm-logo">
            <MagneticWrapper strength={0.1}>
-            <a href="#" className="sm-logo-text" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}>
-                <img src={logo} alt="RaamBow Logo" loading="eager" decoding="async" />
+            <a href="/" className="sm-logo-text" aria-label="RaamBow Technologies Home" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}>
+                <img src={logo} alt="RaamBow Technologies Logo" loading="eager" decoding="async" />
                 <span>
                   <span style={{ color: '#113E78' }}>Raam</span>
                   <span style={{ color: '#F06222' }}>Bow</span>
@@ -70,6 +71,8 @@ export const StaggeredMenu = ({
                className="btn btn-primary" 
                style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', padding: '0.6rem 1.2rem', borderRadius: '50px' }}
                onClick={() => setIsOpen(!isOpen)}
+               aria-label={isOpen ? 'Close navigation menu' : 'Open navigation menu'}
+               aria-expanded={isOpen}
              >
                {isOpen ? <X size={20} /> : <Menu size={20} />}
                <span className="desktop-only">{isOpen ? 'Close' : 'Menu'}</span>
